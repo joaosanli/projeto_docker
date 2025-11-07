@@ -1,0 +1,4 @@
+# Cliente leve baseado em busybox + curl
+FROM curlimages/curl:8.11.1
+ENV TARGET_URL=http://d1-server:8080/
+CMD sh -c 'i=0; while true; do i=$$((i+1)); echo "[client] Try $$i -> $TARGET_URL"; curl -s $TARGET_URL; echo; sleep 2; done'

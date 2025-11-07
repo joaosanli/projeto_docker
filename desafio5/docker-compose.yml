@@ -1,0 +1,15 @@
+services:
+  users:
+    build: ./users
+    container_name: d5-users
+  orders:
+    build: ./orders
+    container_name: d5-orders
+  gateway:
+    build: ./gateway
+    container_name: d5-gateway
+    ports:
+      - "5050:5000"
+    depends_on:
+      - users
+      - orders
